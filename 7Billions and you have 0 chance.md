@@ -63,9 +63,27 @@ def page_not_found(e):
 app.run(host="0.0.0.0", port=8000)
 ```
 
-It was obvious that its SQL injection but to be sure lets detect the injection point:
+It was obvious that its SQLite injection but to be sure lets detect the injection point:
 <img src=https://github.com/Qusaihija/securinets-valentine-2024/blob/main/images/Capture2.PNG>
 after we put <b>'</b> we got this Error:
-<img src=https://github.com/Qusaihija/securinets-valentine-2024/blob/main/images/Capture2.PNG>
+<img src=https://github.com/Qusaihija/securinets-valentine-2024/blob/main/images/Capture3.PNG>
+
+
+
+Next we need to find number of columns using this payload:
+```admin'UNION+SELECT+NULL,NULL,NULL--```
+I found that its only 3 columns throught enumerating.
+and when i got that the database has 3 tables a new repsone got to us:
+<img src=https://github.com/Qusaihija/securinets-valentine-2024/blob/main/images/Capture4.PNG>
+
+
+<b>Here is the final take "there are 7 billions people and I have 0 chance,read it from the end"</b>
+
+from that we knew that its time based sqlite injection, so lets get to work:
+
+first we need to find the name of the table using this query:
+<b>username=username=admin'UNION+SELECT+tbl_name,NULL,NULL+FROM+sqlite_master+WHERE+tbl_name+NOT+LIKE+'sqlite_%'+AND+tbl_name+LIKE+'fla%'+--&password=asd</b>
+
+throught enumeration we found that the table name is flag.
 
 
