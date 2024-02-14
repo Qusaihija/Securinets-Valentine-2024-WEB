@@ -63,4 +63,9 @@ def page_not_found(e):
 app.run(host="0.0.0.0", port=8000)
 ```
 
+It was obvious that its SQL injection but to be sure lets detect the injection point:
+<img src=https://github.com/Qusaihija/securinets-valentine-2024/blob/main/images/Capture2.PNG>
+after we put <b>'</b> we got this Error:
+<img src=https://github.com/Qusaihija/securinets-valentine-2024/blob/main/images/Capture2.PNG>
+
 
