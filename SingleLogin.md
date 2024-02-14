@@ -54,8 +54,8 @@ if __name__ == '__main__':
     app.run(debug=False, host='0.0.0.0')
 ```
 
-it was obvious that its sql injection, but we have to put "sadsingle" as the username
-and the injection point in the password:
+It was obvious that it was SQL injection, but we have to put "sadsingle" as the username 
+and the injection point in the password.
 
 <img src=https://github.com/Qusaihija/securinets-valentine-2024/blob/main/images/Capture1.PNG>
 
