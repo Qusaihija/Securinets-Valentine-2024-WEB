@@ -59,3 +59,5 @@ and the injection point in the password.
 
 <img src=https://github.com/Qusaihija/securinets-valentine-2024/blob/main/images/Capture1.PNG>
 
+flag: ```SecuriNets{b31ng_51ngl3_15_c00l8bc96fdeedd7d0f536b2a287dce4e4b7}```
+
