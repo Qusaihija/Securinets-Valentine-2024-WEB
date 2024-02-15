@@ -98,7 +98,7 @@ and got a valid response:
 
 finally we have to exract the flag using this query:
 ```admin'UNION+SELECT+flag,NULL,NULL+FROM+flag+WHERE+flag+LIKE+'securinets{%'--```
-<img src=https://github.com/Qusaihija/securinets-valentine-2024/blob/main/images/Capture6.PNG>
+<img src=https://github.com/Qusaihija/securinets-valentine-2024/blob/main/images/lol2.PNG>
 
 we have to keep enumerating the ```LIKE``` value until we get our full flag.
 so i wrote this script to do the work
