@@ -18,7 +18,7 @@ and the way to exploit is by using jwt_tool:
 ```python3 jwt_tool.py <jwt-here> -X a```
 <img src=https://github.com/Qusaihija/securinets-valentine-2024/blob/main/images/Capture10.PNG>
 
-I also changed our roles from user to admin.
+I also changed our role from user to admin.
 submitting the tampered JWT, we got:
 <img src=https://github.com/Qusaihija/securinets-valentine-2024/blob/main/images/Capture11.PNG>
 
