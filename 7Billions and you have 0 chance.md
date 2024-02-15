@@ -2,7 +2,7 @@
 
 <img src=https://github.com/Qusaihija/securinets-valentine-2024/blob/main/images/image3.PNG>
 
-Enumerating through the website i found ```<b>robots.txt</b>```
+Enumerating through the website i found ```robots.txt```
 And got this code:
 
 ```py
@@ -65,7 +65,7 @@ app.run(host="0.0.0.0", port=8000)
 
 It was obvious that it was SQLite injection, but to be sure, let's detect the injection point:
 <img src=https://github.com/Qusaihija/securinets-valentine-2024/blob/main/images/Capture2.PNG>
-after we put ```<b>'</b>``` we got this Error:
+after we put ```'``` we got this Error:
 <img src=https://github.com/Qusaihija/securinets-valentine-2024/blob/main/images/Capture3.PNG>
 
 
