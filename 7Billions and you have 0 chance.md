@@ -73,7 +73,7 @@ after we put ```'``` we got this Error:
 Next, we need to find the number of columns using this payload:
 ```admin'UNION+SELECT+NULL,NULL,NULL--```
 I found that there were only 3 columns through enumeration.
-and when I got that the database has 3 tables, a new representative got to us:
+and when I got that the database has 3 columns, a new response got to us:
 <img src=https://github.com/Qusaihija/securinets-valentine-2024/blob/main/images/Capture4.PNG>
 ```which is the valid one :)```
 
